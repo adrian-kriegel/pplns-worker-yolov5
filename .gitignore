@@ -1,0 +1,11 @@
+schemas/
+python_env/
+.mypy_cache/
+__pycache__
+.env
+.env.test
+.pytest_cache
+.vscode
+pplns_python/pplns_python.egg-info
+pplns_python.egg-info
+*.pt
