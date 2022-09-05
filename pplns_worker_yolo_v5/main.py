@@ -30,6 +30,6 @@ if __name__ == '__main__':
     }
   )
 
-  stream.on('data', p)
+  stream.on_data(p)
 
 

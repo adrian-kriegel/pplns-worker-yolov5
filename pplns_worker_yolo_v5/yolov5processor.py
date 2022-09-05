@@ -101,7 +101,7 @@ class YoloV5Processor(BatchProcessor):
   ) -> list[ProcessorOutput]:
 
     urls = [
-      inp["inputs"]['image']["data"][0]['image']
+      inp["inputs"]['image']["data"][0]['s3Url']
       for inp in inputs
     ]
 
