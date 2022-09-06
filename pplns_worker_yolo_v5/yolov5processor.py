@@ -95,15 +95,10 @@ class YoloV5Processor(BatchProcessor):
 
       raise Exception('Worker has not been registered.')
 
-  def __call__(
+  def process_urls(
     self,
-    inputs : list[PreparedInput],
+    urls : list[str]
   ) -> list[ProcessorOutput]:
-
-    urls = [
-      inp["inputs"]['image']["data"][0]['s3Url']
-      for inp in inputs
-    ]
 
     dfs = self.model(urls).pandas().xyxy
 
@@ -116,6 +111,18 @@ class YoloV5Processor(BatchProcessor):
       } 
       for df in dfs
     ]
+
+  def __call__(
+    self,
+    inputs : list[PreparedInput],
+  ) -> list[ProcessorOutput]:
+
+    urls = [
+      inp["inputs"]['image']["data"][0]['s3Url']
+      for inp in inputs
+    ]
+
+    return self.process_urls(urls)
       
     
 
