@@ -14,7 +14,7 @@ from pplns_python.api import PipelineApi
 
 yolov5worker : WorkerWrite = {
 
-  "key": "worker_yolo_v5",
+  "_id": "worker_yolo_v5",
 
   "title": "YOLO V5",
 
