@@ -1,7 +1,9 @@
 #!/bin/sh
 
-./dev/test.sh && \
+./dev/test.sh
 
-./dev/freeze.sh && \
+./dev/freeze.sh
 
 git add requirements.txt
+
+python pplns_worker_yolo_v5/export_worker.py && git add pplns_workers/*.json

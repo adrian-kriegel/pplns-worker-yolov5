@@ -37,7 +37,7 @@ pickleshare==0.7.5
 Pillow==9.2.0
 pluggy==1.0.0
 -e git+ssh://git@github.com/unologin/pplns_python.git@64151c586274faaceb296fd34457b4f689c438cb#egg=pplns_python
--e git+ssh://git@github.com/unologin/pplns-core-api.git@adc7be2ee81df685a3743492e01cdf445fff27f3#egg=pplns_types&subdirectory=python-types
+-e git+ssh://git@github.com/unologin/pplns-core-api.git@f334145cbdf5a4b0f60eaefc3e38ecf404ed1a8d#egg=pplns_types&subdirectory=python-types
 prompt-toolkit==3.0.31
 protobuf==3.19.4
 psutil==5.9.1

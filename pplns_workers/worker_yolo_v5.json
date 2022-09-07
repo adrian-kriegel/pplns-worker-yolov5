@@ -1,0 +1,30 @@
+{
+  "_id": "worker_yolo_v5",
+  "title": "YOLO V5",
+  "description": "Detect objects using YOLO V5.",
+  "inputs": {
+    "image": {
+      "type": "object",
+      "properties": {
+        "s3Url": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "outputs": {
+    "boxes": {
+      "description": "(x, y, x, y, conf., class_idx, class_name) for each box",
+      "type": "array",
+      "items": {
+        "type": "array"
+      }
+    }
+  },
+  "params": {
+    "model": {
+      "type": "string",
+      "default": "ultralytics/yolov5 yolov5s"
+    }
+  }
+}
