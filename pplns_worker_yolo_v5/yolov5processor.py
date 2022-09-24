@@ -1,4 +1,5 @@
 
+from typing import Callable
 import torch
 
 from pplns_types import \
@@ -59,6 +60,8 @@ class YoloV5Processor(BatchProcessor):
 
   worker : Worker | None = None
 
+  url_signer : Callable[[str], str] | None = None
+
   def __init__(
     self,
     api : PipelineApi,
@@ -99,6 +102,10 @@ class YoloV5Processor(BatchProcessor):
     self,
     urls : list[str]
   ) -> list[ProcessorOutput]:
+
+    if (self.url_signer):
+
+      urls = [self.url_signer(url) for url in urls]
 
     dfs = self.model(urls).pandas().xyxy
 

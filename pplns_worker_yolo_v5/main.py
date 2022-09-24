@@ -1,25 +1,23 @@
 
-import os
+import time
 
 from pplns_python.api import PipelineApi
+from s3_util import S3UrlSigner
 
 from yolov5processor import YoloV5Processor
-
-def env(name : str) -> str:
-
-  if name in os.environ:
-
-    return os.environ[name]
-
-  else: 
-
-    raise Exception(f'Missng {name} in env.')
+from util import env
 
 if __name__ == '__main__':
+
+  from dotenv import load_dotenv
+
+  load_dotenv()
 
   api = PipelineApi(env('PPLNS_API'))
 
   p = YoloV5Processor(api)
+
+  p.url_signer = S3UrlSigner()
 
   p.register_worker()
 
@@ -31,5 +29,9 @@ if __name__ == '__main__':
   )
 
   stream.on_data(p)
+  stream.start()
 
+  while True:
+
+    time.sleep(1)
 
