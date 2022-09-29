@@ -13,7 +13,7 @@ if __name__ == '__main__':
 
   load_dotenv()
 
-  api = PipelineApi(env('PPLNS_API'))
+  api = PipelineApi(env('PPLNS_API'), env('PPLNS_API_KEY'))
 
   p = YoloV5Processor(api)
 
